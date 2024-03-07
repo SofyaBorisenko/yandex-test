@@ -32,43 +32,78 @@ const list = document.querySelector('.ticker__list');
 
 // **МОБИЛЬНАЯ КАРУСЕЛЬ**
 function initMobileCarousel() {
-  const mobileCarousel = document.querySelector("[data-target='carousel']");
-  const part = mobileCarousel.querySelector("[data-target='card']");
-  const mobRightButton = document.querySelector("[data-action='slideRight']");
+  const carousel = document.querySelector("[data-target='carousel']");
+  const card = carousel.querySelector("[data-target='card']");
+  const leftButton = document.querySelector("[data-action='slideLeft']");
+  const rightButton = document.querySelector("[data-action='slideRight']");
+  const carouselWidth = carousel.offsetWidth;
+  const cardStyle = card.currentStyle || window.getComputedStyle(card);
+  const cardMarginRight = Number(cardStyle.marginRight.match(/\d+/g)[0]);
+  const cardCount = carousel.querySelectorAll("[data-target='card']").length;
+  let offset = 0;
+  const maxX = -(
+    cardCount * carouselWidth +
+    cardMarginRight * cardCount -
+    carouselWidth -
+    cardMarginRight
+  );
+  let autoScrollInterval;
+  // запуск автоматического скролла
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+      slideRight();
+    }, 4000); // скролл каждые 4 сек.
+  }
+  // остановка автоматического скролла
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+  }
+  // обработчики событий для кнопок "влево" и "вправо"
+  leftButton.addEventListener('click', function () {
+    stopAutoScroll();
+    slideLeft();
+  });
+  rightButton.addEventListener('click', function () {
+    stopAutoScroll();
+    slideRight();
+  });
 
-  const partCount = mobileCarousel.querySelectorAll(
-    "[data-target='card']"
-  ).length;
-
-  let currentIndex = 0; // Индекс текущей карточки
-
-  function nextSlide() {
-    // Переходим к следующей карточке
-    currentIndex++;
-    if (currentIndex >= partCount - 1) {
-      currentIndex = partCount - 1; // Ограничиваем индекс, чтобы не выйти за границы карусели
-      mobRightButton.disabled = true; // Делаем кнопку "вправо" неактивной на последней карточке
-    } else {
-      mobRightButton.disabled = false; // Делаем кнопку "вправо" активной, если не на последней карточке
-    }
-
-    // Скрываем или показываем кнопку "влево" в зависимости от индекса
-    document.querySelector("[data-action='slideLeft']").style.display =
-      currentIndex > 0 ? 'block' : 'none';
-
-    // Прокручиваем карусель до нужной карточки
-    mobileCarousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+  const carouselPosition = document.querySelector('.carousel-position'); // элемент для отображения позиции карусели
+  // Функция для обновления позиции карусели
+  function updateCarouselPosition() {
+    const currentCard = Math.ceil(
+      (Math.abs(offset) + carouselWidth) / (carouselWidth * cardCount)
+    ); // текущий слайд
+    carouselPosition.textContent = `${currentCard} / ${cardCount}`; // обновление текста элемента
   }
 
-  // Устанавливаем интервал для автоматической смены карточек
-  const intervalId = setInterval(nextSlide, 4000);
-
-  // Обработчик события клика на кнопку "вправо"
-  mobRightButton.addEventListener('click', function () {
-    clearInterval(intervalId); // Останавливаем автоматическую смену карточек при клике
-    nextSlide();
-    intervalId = setInterval(nextSlide, 4000); // Запускаем автоматическую смену карточек снова
-  });
+  function slideLeft() {
+    stopAutoScroll(); // остановка автоскролла перед прокруткой
+    if (offset !== 0) {
+      offset += carouselWidth + cardMarginRight;
+      carousel.style.transform = `translateX(${offset}px)`;
+    } else {
+      offset = maxX;
+      carousel.style.transform = `translateX(${offset}px)`;
+    }
+    updateCarouselPosition(); // обновление позиции карусели
+    /*updateButtonsState(); // обновление состояния кнопок*/
+    startAutoScroll(); // возобновление автоскролла
+  }
+  function slideRight() {
+    stopAutoScroll(); // остановка автоскролла перед прокруткой
+    if (offset !== maxX) {
+      offset -= carouselWidth + cardMarginRight;
+      carousel.style.transform = `translateX(${offset}px)`;
+    } else {
+      offset = 0;
+      carousel.style.transform = `translateX(${offset}px)`;
+    }
+    updateCarouselPosition(); // обновление позиции карусели
+    /*updateButtonsState(); // обновление состояния кнопок*/
+    startAutoScroll(); // возобновление автоскролла после прокрутки
+  }
+  startAutoScroll();
 }
 
 // **КАРУСЕЛЬ ДЛЯ ДЕСКТОПА
@@ -108,6 +143,7 @@ function initDesktopCarousel() {
     stopAutoScroll();
     slideRight();
   });
+  /*leftButton.disabled = true; //  Для незацикленной карусели. Отключаем левую кнопку изначально*/
   const carouselPosition = document.querySelector('.carousel-position'); // элемент для отображения позиции карусели
   const slideCount = 2; // общее количество слайдов (групп карточек)
   // Функция для обновления позиции карусели
@@ -117,21 +153,21 @@ function initDesktopCarousel() {
     ); // текущий слайд
     carouselPosition.textContent = `${currentSlide * 3} / ${slideCount * 3}`; // обновление текста элемента
   }
-  // Функция для обновления состояния кнопок
+
+  /* Для незацикленной карусели. Функция для обновления состояния кнопок. Проверяем, находится ли карусель в начальной позиции. Если да, то отключаем кнопку "влево"; иначе включаем кнопку "влево". Потом проверяем, находится ли карусель в конечной позиции. Если да, то отключаем кнопку "вправо"; иначе включаем кнопку "вправо". 
   function updateButtonsState() {
-    // находится ли карусель в начальной позиции
     if (offset === 0) {
-      leftButton.disabled = true; // если да, то отключаем кнопку "влево"
+      leftButton.disabled = true;
     } else {
-      leftButton.disabled = false; // иначе включаем кнопку "влево"
+      leftButton.disabled = false;
     }
-    // находится ли карусель в конечной позиции
     if (offset === maxX) {
-      rightButton.disabled = true; // если да, то отключаем кнопку "вправо"
+      rightButton.disabled = true;
     } else {
-      rightButton.disabled = false; // иначе включаем кнопку "вправо"
+      rightButton.disabled = false;
     }
-  }
+  } */
+
   function slideLeft() {
     stopAutoScroll(); // остановка автоскролла перед прокруткой
     if (offset !== 0) {
@@ -142,7 +178,7 @@ function initDesktopCarousel() {
       carousel.style.transform = `translateX(${offset}px)`;
     }
     updateCarouselPosition(); // обновление позиции карусели
-    updateButtonsState(); // обновление состояния кнопок
+    /*updateButtonsState(); // обновление состояния кнопок*/
     startAutoScroll(); // возобновление автоскролла
   }
   function slideRight() {
@@ -155,7 +191,7 @@ function initDesktopCarousel() {
       carousel.style.transform = `translateX(${offset}px)`;
     }
     updateCarouselPosition(); // обновление позиции карусели
-    updateButtonsState(); // обновление состояния кнопок
+    /*updateButtonsState(); // обновление состояния кнопок*/
     startAutoScroll(); // возобновление автоскролла после прокрутки
   }
   startAutoScroll();

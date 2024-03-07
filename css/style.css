@@ -6,6 +6,14 @@ body {
   background-color: #ffffff;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
+ul {
+  padding-inline-start: 0;
+}
+
 /* Styles for screens under 376px (Base) */
 @media only screen and (max-width: 376px) {
   .header-hero-bg {
@@ -66,16 +74,19 @@ body {
     font-weight: 400;
     text-transform: uppercase;
     line-height: 39.6px;
-    letter-spacing: 1.24px;
   }
   .h1-left {
     text-align: left;
+    height: 80px;
   }
   .h1-center {
-    text-align: center;
+    width: 216px;
+    height: 40px;
+    padding-left: 63.25px;
   }
   .h1-right {
     text-align: right;
+    height: 40px;
   }
 
   .promo {
@@ -87,6 +98,10 @@ body {
     line-height: 23.4px;
     letter-spacing: 0px;
     text-align: left;
+  }
+
+  .promo .nowrap {
+    white-space: nowrap;
   }
 
   .buttons {
@@ -105,7 +120,6 @@ body {
     margin-top: 14px;
     padding: 18px 20px;
     border-radius: 66px;
-    border: 2px solid #1f1f1f;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -121,6 +135,7 @@ body {
   #left-hero-button {
     background-color: #1f1f1f;
     color: #ffffff;
+    border: 2px solid #1f1f1f;
   }
 
   #left-hero-button:hover {
@@ -130,13 +145,15 @@ body {
   }
 
   #right-hero-button {
-    background: transparent;
+    background: #ffffff;
     color: #1f1f1f;
+    border: none;
   }
 
   #right-hero-button:hover {
     background-color: #1f1f1f;
     color: #ffffff;
+    border: 2px solid #1f1f1f;
   }
 
   .ticker {
@@ -215,7 +232,7 @@ body {
   .lection-mobile-pic {
     display: block;
     width: 335px;
-    height: 212px;
+    height: 212.56px;
     padding: 24px 0 24.4px 0;
   }
 
@@ -228,17 +245,27 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 1174px;
-    padding: 34px 20px 120px 20px;
+    height: 1188.19px;
+    padding: 20px 20px 0 20px;
   }
 
   .session img {
     width: 375px;
+    height: 430px;
   }
 
   .session .announcement {
     width: 335px;
     height: 228px;
+  }
+
+  .session-left {
+  }
+
+  .session-right {
+    padding-top: 7px;
+    width: 336px;
+    height: 748px;
   }
 
   .session-right .announcement .nowrap {
@@ -257,14 +284,18 @@ body {
 
   td {
     height: 24px;
-  }
-
-  td,
-  .questions,
-  .headline-extra {
     font-family: 'Golos Text', sans-serif;
     font-size: 20px;
     line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .questions,
+  .headline-extra {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 18px;
+    line-height: 21.6px;
     letter-spacing: 0px;
     text-align: left;
   }
@@ -325,6 +356,7 @@ body {
   }
 
   .stages {
+    margin-top: 120px;
     padding: 0 20px;
     height: 688px;
   }
@@ -344,7 +376,7 @@ body {
 
   .headline-extra {
     height: 48px;
-    padding: 12px 0 20px 0;
+    padding: 12px 0 24px 0;
   }
 
   .airplane {
@@ -354,7 +386,7 @@ body {
   .airplane-mob {
     position: relative;
     display: flex;
-    transform: translateX(18.64px) translateY(25px) rotate(-18.73deg);
+    transform: translateX(19px) translateY(27px) rotate(-18.73deg);
     z-index: 1;
   }
 
@@ -376,13 +408,14 @@ body {
     position: absolute;
     opacity: 0;
     top: 0;
-    width: 295px;
+    width: 100%;
     background-image: url(../images/stage_bg_mob.png);
     background-size: cover;
   }
   .carousel-item.active,
   .carousel-item.prev,
   .carousel-item.next {
+    width: 295px;
     opacity: 1;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
@@ -419,14 +452,40 @@ body {
   .div4 {
     padding-bottom: 28px;
   }
+  .div1,
+  .div2 {
+    width: 291px;
+    height: 88px;
+  }
+  .div3,
+  .div4,
+  .div5,
+  .div6,
+  .div7 {
+    width: 295px;
+  }
+
   .carousel-item p {
-    width: 243px;
+    display: flex;
+    align-items: flex-end;
     font-family: 'Golos Text', sans-serif;
     font-size: 18px;
     font-weight: 500;
     line-height: 21.6px;
     letter-spacing: 0px;
     text-align: left;
+  }
+  .div1 p,
+  .div2 p {
+    width: 239px;
+    height: 88px;
+  }
+  .div3 p,
+  .div4 p,
+  .div5 p,
+  .div6 p,
+  .div7 p {
+    width: 243px;
   }
   .number {
     display: flex;
@@ -537,44 +596,59 @@ body {
   /*PARTICIPANTS*/
 
   .participants {
+    width: 335px;
     height: 584px;
-    margin-top: 120px;
+    margin: 120px 20px 100px 20px;
     position: relative;
     overflow: hidden;
   }
 
   .headline-buttons {
-    display: none;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 40px;
   }
 
   .buttons-container {
+    display: none;
+  }
+
+  .mobile-buttons-container {
+    width: 129px;
+    height: 36px;
     display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
     align-items: center;
+    left: 103px;
+    right: 103px;
   }
 
   .carousel {
-    height: 462px;
+    width: 335px;
+    height: 388px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 0;
+    transition: all 1s ease;
     margin-block-start: 0;
     margin-block-end: 0;
     margin-inline-start: 0;
     margin-inline-end: 0;
     padding-inline-start: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    left: 0;
-    transition: all 1s ease;
   }
 
   .carousel-position {
-    padding: 16.5px 14px;
+    display: flex;
     font-family: 'Golos Text', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
     letter-spacing: 0px;
-    text-align: left;
+    text-align: center;
   }
 
   .current-slide {
@@ -585,20 +659,20 @@ body {
     color: rgba(49, 49, 49, 0.6);
   }
 
-  .car-button {
-    width: 44px;
-    height: 44px;
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
     background: #313131;
     border-radius: 50%;
     border: none;
     padding: 0;
   }
 
-  .car-button:hover {
+  .carousel-btn:hover {
     background-color: #fbce51;
   }
 
-  .car-button:disabled {
+  .carousel-btn:disabled {
     background-color: #d6d6d6;
     cursor: not-allowed;
   }
@@ -610,7 +684,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin-right: 32px;
+    margin-right: 20px;
   }
 
   .card img {
@@ -779,7 +853,6 @@ body {
     justify-content: center;
     width: 263px;
     height: 72px;
-    padding: 20px 36px;
     border-radius: 66px;
     border: 2px solid #1f1f1f;
     box-sizing: border-box;
@@ -794,6 +867,7 @@ body {
   }
 
   #left-hero-button {
+    padding: 20px 40px;
     background-color: #1f1f1f;
     color: #ffffff;
   }
@@ -805,6 +879,7 @@ body {
   }
 
   #right-hero-button {
+    padding: 20px 80px;
     background: transparent;
     color: #1f1f1f;
   }
@@ -901,7 +976,7 @@ body {
   }
 
   .session .announcement {
-    width: 704px;
+    width: 680px;
   }
 
   .session img {
@@ -984,11 +1059,6 @@ body {
     transform: translateX(-242px) translateY(13px);
   }
 
-  .announcement span {
-    font-weight: 700;
-    color: #f54932;
-  }
-
   .questions,
   .headline-extra {
     color: #3057a2;
@@ -1019,6 +1089,15 @@ body {
   }
 
   /*STAGES*/
+
+  .stages {
+    height: 584px;
+    margin-bottom: 200px;
+  }
+
+  .stages-flexbox {
+    margin-top: 6px;
+  }
 
   .h-stack {
     display: flex;
@@ -1119,7 +1198,7 @@ body {
   .airplane {
     width: 376.64px;
     height: 140.42px;
-    transform: translateX(884px) translateY(-184px) rotate(-15.31deg);
+    transform: translateX(896px) translateY(-188px) rotate(-15.31deg);
   }
 
   .airplane-mob,
@@ -1149,6 +1228,10 @@ body {
   .buttons-container {
     display: flex;
     align-items: center;
+  }
+
+  .mobile-buttons-container {
+    display: none;
   }
 
   .carousel {
@@ -1185,7 +1268,7 @@ body {
     color: rgba(49, 49, 49, 0.6);
   }
 
-  .car-button {
+  .carousel-btn {
     width: 44px;
     height: 44px;
     background: #313131;
@@ -1194,11 +1277,11 @@ body {
     padding: 0;
   }
 
-  .car-button:hover {
+  .carousel-btn:hover {
     background-color: #fbce51;
   }
 
-  .car-button:disabled {
+  .carousel-btn:disabled {
     background-color: #d6d6d6;
     cursor: not-allowed;
   }
