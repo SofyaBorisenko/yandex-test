@@ -14,9 +14,296 @@ ul {
   padding-inline-start: 0;
 }
 
-/* Styles for screens under 376px (Base) */
-@media only screen and (max-width: 376px) {
+.logo {
+  display: flex;
+  flex-direction: row;
+}
+.logo p {
+  font-family: 'Golos Text', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1%;
+  text-align: left;
+  text-transform: uppercase;
+  color: #595653;
+  white-space: nowrap;
+}
+
+.promo {
+  color: #313131;
+  padding-top: 24px;
+  font-family: 'Golos Text', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23.4px;
+  letter-spacing: 0px;
+}
+
+.red {
+  font-weight: 700;
+  color: #f54932;
+}
+
+.lection .announcement,
+.session .announcement {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-align: left;
+  text-transform: uppercase;
+  color: #313131;
+}
+
+.questions,
+.headline-extra {
+  color: #3057a2;
+}
+
+/* HEADLINES */
+h1 {
+  color: #313131;
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+}
+h2 {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-align: left;
+  text-transform: uppercase;
+  color: #313131;
+}
+h3 {
+  color: #313131;
+  font-family: 'Golos Text', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28.8px;
+  letter-spacing: 0px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* TICKER */
+.ticker {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+.ticker_list {
+  display: flex;
+  align-items: center;
+  background-color: #f54932;
+  animation: ticker 15s infinite linear;
+}
+.ticker:hover .ticker_list {
+  animation-play-state: paused;
+}
+.ticker_item {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  background-color: #f54932;
+  color: #ffffff;
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-align: right;
+  text-transform: uppercase;
+  user-select: none;
+}
+@keyframes ticker {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* BUTTONS */
+#left-hero-button,
+#right-hero-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 66px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: 'Golos Text', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20.8px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+#left-hero-button {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  border: 2px solid #1f1f1f;
+}
+#left-hero-button:hover {
+  background-color: #fbce51;
+  color: #1f1f1f;
+  border: 2px solid #fbce51;
+}
+
+.carousel-btn {
+  background: #313131;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  outline: 0;
+}
+.carousel-btn:hover {
+  background-color: #fbce51;
+}
+.carousel-btn:disabled {
+  background-color: #d6d6d6;
+  cursor: not-allowed;
+}
+
+/* TABLE */
+table {
+  border-collapse: collapse;
+}
+.left-column {
+  color: rgba(49, 49, 49, 0.7);
+  font-weight: 400;
+}
+.right-column {
+  font-weight: 600;
+  color: #313131;
+}
+
+/* CAROUSELS */
+/* participants */
+.participants {
+  position: relative;
+  overflow: hidden;
+}
+.carousel {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+  transition: all 1s ease;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.carousel-position {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Golos Text', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+.current-card,
+.current-slide {
+  color: #313131;
+}
+.total-cards,
+.total-slides {
+  color: rgba(49, 49, 49, 0.6);
+}
+
+.participant-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.participant-info p {
+  padding-top: 6px;
+  color: rgba(49, 49, 49, 0.6);
+  font-family: 'Golos Text', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.participant-info button {
+  width: 113px;
+  height: 35px;
+  margin-top: 20px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 62px;
+  border: 1px solid #3057a2;
+  font-family: 'Golos Text', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.2px;
+  letter-spacing: 0px;
+  color: #3057a2;
+}
+.participant-info button:hover {
+  background-color: #3057a2;
+  color: #fff;
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 16px;
+  border-radius: 60px;
+  background-color: #ffffff;
+  font-family: 'Golos Text', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #313131;
+}
+
+/* FOOTER */
+footer {
+  width: 100vw;
+  background-color: #e9ded4;
+  display: flex;
+  align-items: center;
+}
+footer p {
+  color: rgba(49, 49, 49, 0.6);
+  font-family: 'Golos Text', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+/* Styles for screens under 768px (Base) */
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .header-hero-bg {
+    width: 100%;
     height: 774px;
     background-image: url('../images/hero_bg_mob.png');
     background-size: cover;
@@ -35,6 +322,7 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
   }
 
   .hero-content {
@@ -47,32 +335,19 @@ ul {
   .logo {
     width: 213px;
     height: 32px;
-    display: flex;
-    flex-direction: row;
   }
 
   .logo p {
-    padding-left: 6.35px;
+    padding-left: 5.5px;
     width: 128px;
     height: 32px;
-    font-family: 'Golos Text', sans-serif;
     font-size: 14.42px;
-    font-weight: 700;
     line-height: 15.57px;
-    letter-spacing: 1%;
-    text-align: left;
-    text-transform: uppercase;
-    color: #595653;
-    white-space: nowrap;
   }
 
   h1 {
     width: 335px;
-    color: #313131;
-    font-family: 'Merriweather', serif;
     font-size: 36px;
-    font-weight: 400;
-    text-transform: uppercase;
     line-height: 39.6px;
   }
   .h1-left {
@@ -88,20 +363,8 @@ ul {
     text-align: right;
     height: 40px;
   }
-
   .promo {
-    color: #313131;
-    padding-top: 24px;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 23.4px;
-    letter-spacing: 0px;
     text-align: left;
-  }
-
-  .promo .nowrap {
-    white-space: nowrap;
   }
 
   .buttons {
@@ -112,36 +375,11 @@ ul {
 
   #left-hero-button,
   #right-hero-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 335px;
     height: 47px;
     margin-top: 14px;
     padding: 18px 20px;
-    border-radius: 66px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20.8px;
-    letter-spacing: 0px;
-    text-align: center;
     white-space: nowrap;
-  }
-
-  #left-hero-button {
-    background-color: #1f1f1f;
-    color: #ffffff;
-    border: 2px solid #1f1f1f;
-  }
-
-  #left-hero-button:hover {
-    background-color: #fbce51;
-    color: #1f1f1f;
-    border: 2px solid #fbce51;
   }
 
   #right-hero-button {
@@ -155,46 +393,18 @@ ul {
     color: #ffffff;
     border: 2px solid #1f1f1f;
   }
-
+  /* TICKER */
   .ticker {
-    width: 375px;
     height: 38px;
-    overflow: hidden;
-    display: flex;
   }
-
   .ticker_list {
-    display: flex;
-    align-items: center;
-    height: 38px;
-    background-color: #f54932;
-    animation: ticker 15s infinite linear;
-  }
-  .ticker:hover .ticker_list {
-    animation-play-state: paused;
+    height: 100%;
   }
   .ticker_item {
-    display: flex;
-    flex-direction: row;
-    white-space: nowrap;
     margin-right: 12px;
     padding: 10px 0;
-    background-color: #f54932;
-    color: #ffffff;
-    font-family: 'Merriweather', serif;
     font-size: 16px;
-    font-weight: 400;
     line-height: 17.6px;
-    letter-spacing: 0px;
-    text-align: right;
-    text-transform: uppercase;
-    user-select: none;
-  }
-
-  @keyframes ticker {
-    100% {
-      transform: translateX(-100%);
-    }
   }
 
   .lection {
@@ -214,19 +424,8 @@ ul {
 
   .lection .announcement,
   .session .announcement {
-    font-family: 'Merriweather', serif;
     font-size: 28px;
-    font-weight: 400;
     line-height: 37.8px;
-    letter-spacing: 0px;
-    text-align: left;
-    text-transform: uppercase;
-    color: #313131;
-  }
-
-  .announcement .red {
-    font-weight: 700;
-    color: #f54932;
   }
 
   .lection-mobile-pic {
@@ -265,12 +464,7 @@ ul {
     height: 748px;
   }
 
-  .session-right .announcement .nowrap {
-    white-space: nowrap;
-  }
-
-  .session-right table {
-    border-collapse: collapse;
+  table {
     margin: 44px 0 40px 0;
   }
 
@@ -298,13 +492,9 @@ ul {
   }
   .left-column {
     padding: 15px 0 12px 1px;
-    color: rgba(49, 49, 49, 0.7);
-    font-weight: 400;
   }
   .right-column {
     padding: 0 0 15px 1px;
-    font-weight: 600;
-    color: #313131;
     border-bottom: 2px solid #d0d0d0;
   }
 
@@ -347,11 +537,6 @@ ul {
     transform: translateX(-242px) translateY(13px);
   }
 
-  .questions,
-  .headline-extra {
-    color: #3057a2;
-  }
-
   .stages {
     margin-top: 120px;
     padding: 0 20px;
@@ -361,14 +546,8 @@ ul {
   h2 {
     width: 335px;
     height: 120px;
-    font-family: 'Merriweather', serif;
     font-size: 36px;
-    font-weight: 400;
     line-height: 39.6px;
-    letter-spacing: 0px;
-    text-align: left;
-    text-transform: uppercase;
-    color: #313131;
   }
 
   .headline-extra {
@@ -484,23 +663,7 @@ ul {
   .div7 p {
     width: 243px;
   }
-  .number {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    margin-right: 16px;
-    border-radius: 60px;
-    background-color: #ffffff;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: #313131;
-  }
+
   /* slide("_R") */
   @keyframes slideLeftOut {
     0% {
@@ -557,22 +720,7 @@ ul {
     align-items: center;
     justify-content: center;
   }
-  .carousel-btn {
-    width: 36px;
-    height: 36px;
-    background: #313131;
-    border-radius: 50%;
-    border: none;
-    padding: 0;
-    outline: 0;
-  }
-  .carousel-btn:hover {
-    background-color: #fbce51;
-  }
-  .carousel-btn:disabled {
-    background-color: #d6d6d6;
-    cursor: not-allowed;
-  }
+
   .carousel-dots {
     width: 74px;
     height: 10px;
@@ -596,8 +744,6 @@ ul {
     width: 335px;
     height: 584px;
     margin: 120px 20px 100px 20px;
-    position: relative;
-    overflow: hidden;
   }
 
   .headline-buttons {
@@ -625,65 +771,16 @@ ul {
   .carousel {
     width: 335px;
     height: 388px;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    left: 0;
-    transition: all 1s ease;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    padding-inline-start: 0;
-  }
-
-  .carousel-position {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.2px;
-    letter-spacing: 0px;
-    text-align: center;
-  }
-
-  .current-card {
-    color: #313131;
-  }
-
-  .total-cards {
-    color: rgba(49, 49, 49, 0.6);
   }
 
   .carousel-btn {
     width: 36px;
     height: 36px;
-    background: #313131;
-    border-radius: 50%;
-    border: none;
-    padding: 0;
-  }
-
-  .carousel-btn:hover {
-    background-color: #fbce51;
-  }
-
-  .carousel-btn:disabled {
-    background-color: #d6d6d6;
-    cursor: not-allowed;
   }
 
   .card {
     width: 335px;
     height: 388px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     margin-right: 20px;
   }
 
@@ -693,85 +790,27 @@ ul {
     padding: 0 45.5px;
   }
 
-  .part-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .participant-info {
     padding: 28px 24.5px 0 24.5px;
-  }
-
-  h3 {
-    color: #313131;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 28.8px;
-    letter-spacing: 0px;
-    text-align: center;
-    white-space: nowrap;
-  }
-
-  .part-info p {
-    padding-top: 6px;
-    color: rgba(49, 49, 49, 0.6);
-    font-family: 'Golos Text', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
-    text-align: left;
-  }
-  .part-info button {
-    width: 113px;
-    height: 35px;
-    margin-top: 20px;
-    padding: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 62px;
-    border: 1px solid #3057a2;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 19.2px;
-    letter-spacing: 0px;
-    color: #3057a2;
-  }
-
-  .part-info button:hover {
-    background-color: #3057a2;
-    color: #fff;
   }
 
   footer {
     height: 214px;
-    background-color: #e9ded4;
-    display: flex;
-    align-items: center;
   }
-
   footer p {
     padding: 40px 20px 60px 20px;
-    color: rgba(49, 49, 49, 0.6);
-    font-family: 'Golos Text', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.2px;
-    letter-spacing: 0px;
-    text-align: left;
   }
 }
 
-/* Styles for screens 1280px+ */
-@media (min-width: 769px) {
-  header,
-  .hero {
-    width: 100vw;
+/* Styles for screens 768-1280px */
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+  body {
+    display: flex;
+    flex-direction: column;
   }
 
   .header-hero-bg {
-    width: 100vw;
+    width: 100%;
     background-image: url('../images/background.webp');
     background-size: cover;
     background-position: center;
@@ -779,7 +818,7 @@ ul {
   }
 
   .hero-content {
-    padding: 62px 752px 132px 72px;
+    padding: 62px 252px 132px 72px;
     width: 542px;
     height: 444px;
   }
@@ -788,33 +827,20 @@ ul {
     width: 245.17px;
     height: 36px;
     padding: 26px 0 0 72px;
-    display: flex;
-    flex-direction: row;
   }
 
   .logo p {
     padding-left: 6.35px;
     width: 147px;
     height: 36px;
-    font-family: 'Golos Text', sans-serif;
     font-size: 16.65px;
-    font-weight: 700;
     line-height: 17.98px;
-    letter-spacing: 1%;
-    text-align: left;
-    text-transform: uppercase;
-    color: #595653;
   }
 
   h1 {
     width: 542px;
-    color: #313131;
-    font-family: 'Merriweather', serif;
     font-size: 60px;
-    font-weight: 400;
-    text-transform: uppercase;
     line-height: 66px;
-    letter-spacing: 0px;
   }
   .h1-left {
     text-align: left;
@@ -828,13 +854,6 @@ ul {
 
   .promo {
     width: 542px;
-    color: #313131;
-    padding-top: 24px;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 23.4px;
-    letter-spacing: 0px;
     text-align: center;
   }
 
@@ -848,34 +867,12 @@ ul {
 
   #left-hero-button,
   #right-hero-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 263px;
     height: 72px;
-    border-radius: 66px;
-    border: 2px solid #1f1f1f;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20.8px;
-    letter-spacing: 0px;
-    text-align: center;
   }
 
   #left-hero-button {
     padding: 20px 40px;
-    background-color: #1f1f1f;
-    color: #ffffff;
-  }
-
-  #left-hero-button:hover {
-    background-color: #fbce51;
-    color: #1f1f1f;
-    border: 2px solid #fbce51;
   }
 
   #right-hero-button {
@@ -889,90 +886,59 @@ ul {
     color: #ffffff;
   }
 
+  /* TICKER */
+
   .ticker {
-    overflow: hidden;
-    display: flex;
-    width: 100vw;
     height: 60px;
   }
   .ticker_list {
-    display: flex;
-    align-items: center;
-    height: 60px;
-    background-color: #f54932;
-    animation: ticker 15s infinite linear;
-  }
-  .ticker:hover .ticker_list {
-    animation-play-state: paused;
+    height: 100%;
   }
   .ticker_item {
-    display: flex;
-    flex-direction: row;
-    white-space: nowrap;
     margin-right: 12px;
     padding: 18px 0;
-    background-color: #f54932;
-    color: #ffffff;
-    font-family: 'Merriweather', serif;
     font-size: 22px;
-    font-weight: 400;
     line-height: 24.2px;
-    letter-spacing: 0px;
-    text-align: right;
-    text-transform: uppercase;
-    user-select: none;
-  }
-
-  @keyframes ticker {
-    100% {
-      transform: translateX(-100%);
-    }
   }
 
   .lection {
-    width: 1222px;
-    height: 250px;
-    padding: 80px 72px 0 72px;
+    width: 100%;
+    height: auto;
+    padding: 50px 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
   }
 
   .announcement-container {
-    width: 764px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .lection .announcement,
   .session .announcement {
-    font-family: 'Merriweather', serif;
     font-size: 36px;
-    font-weight: 400;
     line-height: 48.6px;
-    letter-spacing: 0px;
-    text-align: left;
-    text-transform: uppercase;
-    color: #313131;
   }
 
-  .announcement .red {
-    font-weight: 700;
-    color: #f54932;
-  }
-
-  .lection-mobile-pic {
+  .lection-desktop-pic {
     display: none;
+  }
+  .lection-mobile-pic {
+    align-self: center;
+    padding: 20px 0;
   }
 
   .session {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 1249px;
-    height: 609px;
-    padding: 17px 72px 165px 45px;
-    gap: 17px;
+    width: 100%;
+    height: auto;
+    padding: 0 0 50px 0;
   }
 
   .session .announcement {
@@ -990,12 +956,11 @@ ul {
     padding: 47px 0 35px 0;
   }
 
-  .session-right table {
+  table {
     margin: 60px 0 48px 0;
     table-layout: fixed;
     width: 704px;
     height: 248px;
-    border-collapse: collapse;
   }
 
   tr {
@@ -1015,15 +980,11 @@ ul {
   .left-column {
     width: 289px;
     padding: 15px 15px 15px 0;
-    color: rgba(49, 49, 49, 0.7);
     border-bottom: 2px solid #d0d0d0;
-    font-weight: 400;
   }
   .right-column {
     width: 381px;
     padding: 15px 0 15px 15px;
-    font-weight: 600;
-    color: #313131;
     border-bottom: 2px solid #d0d0d0;
     border-left: 2px solid #d0d0d0;
   }
@@ -1059,26 +1020,393 @@ ul {
     transform: translateX(-242px) translateY(13px);
   }
 
-  .questions,
-  .headline-extra {
-    color: #3057a2;
+  h2 {
+    width: 700px;
+    height: 130px;
+    font-size: 50px;
+    line-height: 64.8px;
   }
 
+  .headline-extra {
+    width: 280px;
+    height: 48px;
+    transform: translateX(301px) translateY(-58px);
+    padding-top: 0;
+  }
+
+  /*STAGES*/
+
   .stages {
-    padding: 0 72px;
+    align-self: center;
+  }
+
+  .h-stack {
+    display: flex;
+    flex-direction: row;
+  }
+  .v-stack {
+    display: flex;
+    flex-direction: column;
+  }
+  .v-stack > .h-stack:nth-child(-n + 2) {
+    height: 240px;
+    margin-bottom: 20px;
+  }
+
+  .div1,
+  .div2,
+  .div3,
+  .div4,
+  .div5 {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../images/stage_bg.webp');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+  .div6,
+  .div7 {
+    background-image: url('../images/stage6.webp');
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    height: 240px;
+    padding: 20px;
+  }
+
+  .div1,
+  .div2,
+  .div4,
+  .div5 {
+    display: flex;
+    width: 200px;
+    padding: 20px;
+  }
+  .div3 {
+    display: flex;
+    width: 200px;
+    height: 460px;
+    padding: 20px;
+  }
+
+  .div1,
+  .div2,
+  .div4,
+  .div5,
+  .div6 {
+    margin-right: 20px;
+  }
+
+  .number {
+    margin: 0 0 16px 0;
+  }
+
+  .stages-flexbox p {
+    width: 200px;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+  .div6 p {
+    width: 330px;
+  }
+  .div7 p {
+    width: 330px;
+  }
+
+  .airplane {
+    width: 376.64px;
+    height: 140.42px;
+    transform: translateX(420px) translateY(-440px) rotate(-25deg) scale(0.9);
+  }
+
+  .airplane-mob,
+  .buttons-dots {
+    display: none;
+  }
+
+  /*PARTICIPANTS*/
+
+  .participants {
+    width: 335px;
+    height: 584px;
+    margin: 20px 20px 100px 20px;
+    align-self: center;
+  }
+
+  .headline-buttons {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 40px;
+  }
+
+  .buttons-container {
+    display: none;
+  }
+
+  .mobile-buttons-container {
+    width: 129px;
+    height: 36px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    align-items: center;
+    left: 103px;
+    right: 103px;
+  }
+
+  .carousel {
+    width: 335px;
+    height: 388px;
+  }
+
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .card {
+    width: 335px;
+    height: 388px;
+    margin-right: 20px;
+  }
+
+  .card img {
+    width: 244px;
+    height: 244px;
+    padding: 0 45.5px;
+  }
+
+  .participant-info {
+    padding: 28px 24.5px 0 24.5px;
+  }
+
+  footer {
+    height: 150px;
+  }
+  footer p {
+    padding: 40px 72px 72px 72px;
+  }
+}
+
+/* Styles for screens 1280px+ */
+@media screen and (min-width: 1281px) {
+  .header-hero-bg {
+    min-width: 1366px;
+    background-image: url('../images/background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero-content {
+    padding: 62px 752px 132px 72px;
+    width: 542px;
+    height: 444px;
+  }
+
+  .logo {
+    width: 245.17px;
+    height: 36px;
+    padding: 26px 0 0 72px;
+  }
+
+  .logo p {
+    padding-left: 6.35px;
+    width: 147px;
+    height: 36px;
+    font-size: 16.65px;
+    line-height: 17.98px;
+  }
+
+  h1 {
+    width: 542px;
+    font-size: 60px;
+    line-height: 66px;
+  }
+  .h1-left {
+    text-align: left;
+  }
+  .h1-center {
+    text-align: center;
+  }
+  .h1-right {
+    text-align: right;
+  }
+
+  .promo {
+    width: 542px;
+    text-align: center;
+  }
+
+  .buttons {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #left-hero-button,
+  #right-hero-button {
+    width: 263px;
+    height: 72px;
+  }
+
+  #left-hero-button {
+    padding: 20px 40px;
+  }
+
+  #right-hero-button {
+    padding: 20px 80px;
+    background: transparent;
+    color: #1f1f1f;
+  }
+
+  #right-hero-button:hover {
+    background-color: #1f1f1f;
+    color: #ffffff;
+  }
+
+  /* TICKER */
+
+  .ticker {
+    height: 60px;
+  }
+  .ticker_list {
+    height: 100%;
+  }
+  .ticker_item {
+    margin-right: 12px;
+    padding: 18px 0;
+    font-size: 22px;
+    line-height: 24.2px;
+  }
+
+  .lection {
+    width: 1222px;
+    height: 250px;
+    padding: 80px 72px 0 72px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .announcement-container {
+    width: 764px;
+  }
+
+  .lection .announcement,
+  .session .announcement {
+    font-size: 36px;
+    line-height: 48.6px;
+  }
+
+  .lection-mobile-pic {
+    display: none;
+  }
+
+  .session {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1249px;
+    height: 609px;
+    padding: 17px 72px 165px 45px;
+    gap: 17px;
+  }
+
+  .session .announcement {
+    width: 680px;
+  }
+
+  .session img {
+    width: 530px;
+    height: 609px;
+  }
+
+  .session-right {
+    width: 704px;
+    height: 527px;
+    padding: 47px 0 35px 0;
+  }
+
+  table {
+    margin: 60px 0 48px 0;
+    table-layout: fixed;
+    width: 704px;
+    height: 248px;
+  }
+
+  tr {
+    display: flex;
+    flex-direction: row;
+  }
+
+  td,
+  .questions,
+  .headline-extra {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+  .left-column {
+    width: 289px;
+    padding: 15px 15px 15px 0;
+    border-bottom: 2px solid #d0d0d0;
+  }
+  .right-column {
+    width: 381px;
+    padding: 15px 0 15px 15px;
+    border-bottom: 2px solid #d0d0d0;
+    border-left: 2px solid #d0d0d0;
+  }
+
+  tr .first-row,
+  tr .last-row {
+    height: 40px;
+  }
+
+  tr .middle-row {
+    height: 54px;
+  }
+
+  .first-row td {
+    padding-top: 0;
+  }
+
+  .last-row td {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .right-column .crossed-text-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .crossed-text {
+    margin-right: 12px;
+  }
+
+  .red-line {
+    transform: translateX(-242px) translateY(13px);
   }
 
   h2 {
     width: 806px;
     height: 130px;
-    font-family: 'Merriweather', serif;
     font-size: 54px;
-    font-weight: 400;
     line-height: 64.8px;
-    letter-spacing: 0px;
-    text-align: left;
-    text-transform: uppercase;
-    color: #313131;
   }
 
   .headline-extra {
@@ -1093,6 +1421,7 @@ ul {
   .stages {
     height: 584px;
     margin-bottom: 200px;
+    padding: 0 0 0 72px;
   }
 
   .stages-flexbox {
@@ -1161,24 +1490,6 @@ ul {
     margin-right: 20px;
   }
 
-  .number {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    margin-right: 16px;
-    border-radius: 60px;
-    background-color: #ffffff;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: #313131;
-  }
-
   .stages-flexbox p {
     width: 302px;
     font-family: 'Golos Text', sans-serif;
@@ -1212,8 +1523,6 @@ ul {
     width: 1222px;
     height: 587px;
     margin: 0 72px 140px 72px;
-    position: relative;
-    overflow: hidden;
   }
 
   .headline-buttons {
@@ -1237,66 +1546,20 @@ ul {
   .carousel {
     width: 1222px;
     height: 462px;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    padding-inline-start: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    left: 0;
-    transition: all 1s ease;
   }
 
   .carousel-position {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     padding: 16.5px 14px;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.2px;
-    letter-spacing: 0px;
-    text-align: center;
-  }
-
-  .current-slide {
-    color: #313131;
-  }
-
-  .total-slides {
-    color: rgba(49, 49, 49, 0.6);
   }
 
   .carousel-btn {
     width: 44px;
     height: 44px;
-    background: #313131;
-    border-radius: 50%;
-    border: none;
-    padding: 0;
-  }
-
-  .carousel-btn:hover {
-    background-color: #fbce51;
-  }
-
-  .carousel-btn:disabled {
-    background-color: #d6d6d6;
-    cursor: not-allowed;
   }
 
   .card {
     width: 394px;
     height: 462px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     margin-right: 20px;
   }
 
@@ -1306,73 +1569,14 @@ ul {
     padding: 0 37px;
   }
 
-  .part-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .participant-info {
     padding: 28px 54px 0 54px;
   }
 
-  h3 {
-    color: #313131;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 28.8px;
-    letter-spacing: 0px;
-    text-align: center;
-    white-space: nowrap;
-  }
-
-  .part-info p {
-    padding-top: 6px;
-    color: rgba(49, 49, 49, 0.6);
-    font-family: 'Golos Text', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
-    text-align: left;
-  }
-  .part-info button {
-    width: 113px;
-    height: 35px;
-    margin-top: 20px;
-    padding: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 62px;
-    border: 1px solid #3057a2;
-    font-family: 'Golos Text', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 19.2px;
-    letter-spacing: 0px;
-    color: #3057a2;
-  }
-
-  .part-info button:hover {
-    background-color: #3057a2;
-    color: #fff;
-  }
-
   footer {
-    width: 100vw;
     height: 150px;
-    background-color: #e9ded4;
-    display: flex;
-    align-items: center;
   }
-
   footer p {
     padding: 40px 72px 72px 72px;
-    color: rgba(49, 49, 49, 0.6);
-    font-family: 'Golos Text', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.2px;
-    letter-spacing: 0px;
-    text-align: left;
   }
 }
