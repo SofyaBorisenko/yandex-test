@@ -259,9 +259,6 @@ ul {
     height: 228px;
   }
 
-  .session-left {
-  }
-
   .session-right {
     padding-top: 7px;
     width: 336px;
@@ -643,6 +640,9 @@ ul {
 
   .carousel-position {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     font-family: 'Golos Text', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -651,11 +651,11 @@ ul {
     text-align: center;
   }
 
-  .current-slide {
+  .current-card {
     color: #313131;
   }
 
-  .total-slides {
+  .total-cards {
     color: rgba(49, 49, 49, 0.6);
   }
 
@@ -1251,13 +1251,17 @@ ul {
   }
 
   .carousel-position {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     padding: 16.5px 14px;
     font-family: 'Golos Text', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
     letter-spacing: 0px;
-    text-align: left;
+    text-align: center;
   }
 
   .current-slide {

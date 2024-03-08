@@ -34,8 +34,8 @@ const list = document.querySelector('.ticker__list');
 function initMobileCarousel() {
   const carousel = document.querySelector("[data-target='carousel']");
   const card = carousel.querySelector("[data-target='card']");
-  const leftButton = document.querySelector("[data-action='slideLeft']");
-  const rightButton = document.querySelector("[data-action='slideRight']");
+  const leftButton = document.querySelector("[data-action='left']");
+  const rightButton = document.querySelector("[data-action='right']");
   const carouselWidth = carousel.offsetWidth;
   const cardStyle = card.currentStyle || window.getComputedStyle(card);
   const cardMarginRight = Number(cardStyle.marginRight.match(/\d+/g)[0]);
@@ -51,7 +51,7 @@ function initMobileCarousel() {
   // запуск автоматического скролла
   function startAutoScroll() {
     autoScrollInterval = setInterval(() => {
-      slideRight();
+      right();
     }, 4000); // скролл каждые 4 сек.
   }
   // остановка автоматического скролла
@@ -61,23 +61,23 @@ function initMobileCarousel() {
   // обработчики событий для кнопок "влево" и "вправо"
   leftButton.addEventListener('click', function () {
     stopAutoScroll();
-    slideLeft();
+    left();
   });
   rightButton.addEventListener('click', function () {
     stopAutoScroll();
-    slideRight();
+    right();
   });
 
-  const carouselPosition = document.querySelector('.carousel-position'); // элемент для отображения позиции карусели
-  // Функция для обновления позиции карусели
+  const carouselPosition = document.querySelector('.current-card'); // элемент для отображения текущей карточки
+
   function updateCarouselPosition() {
-    const currentCard = Math.ceil(
-      (Math.abs(offset) + carouselWidth) / (carouselWidth * cardCount)
-    ); // текущий слайд
-    carouselPosition.textContent = `${currentCard} / ${cardCount}`; // обновление текста элемента
+    const currentCardIndex = Math.floor(
+      Math.abs(offset) / (carouselWidth + cardMarginRight)
+    ); // индекс текущей карточки
+    carouselPosition.textContent = `${currentCardIndex + 1}`; // обновление текста элемента
   }
 
-  function slideLeft() {
+  function left() {
     stopAutoScroll(); // остановка автоскролла перед прокруткой
     if (offset !== 0) {
       offset += carouselWidth + cardMarginRight;
@@ -87,10 +87,9 @@ function initMobileCarousel() {
       carousel.style.transform = `translateX(${offset}px)`;
     }
     updateCarouselPosition(); // обновление позиции карусели
-    /*updateButtonsState(); // обновление состояния кнопок*/
     startAutoScroll(); // возобновление автоскролла
   }
-  function slideRight() {
+  function right() {
     stopAutoScroll(); // остановка автоскролла перед прокруткой
     if (offset !== maxX) {
       offset -= carouselWidth + cardMarginRight;
@@ -100,7 +99,6 @@ function initMobileCarousel() {
       carousel.style.transform = `translateX(${offset}px)`;
     }
     updateCarouselPosition(); // обновление позиции карусели
-    /*updateButtonsState(); // обновление состояния кнопок*/
     startAutoScroll(); // возобновление автоскролла после прокрутки
   }
   startAutoScroll();
@@ -144,14 +142,14 @@ function initDesktopCarousel() {
     slideRight();
   });
   /*leftButton.disabled = true; //  Для незацикленной карусели. Отключаем левую кнопку изначально*/
-  const carouselPosition = document.querySelector('.carousel-position'); // элемент для отображения позиции карусели
-  const slideCount = 2; // общее количество слайдов (групп карточек)
+  const carouselPosition = document.querySelector('.current-slide'); // элемент для отображения позиции карусели
+  const slideCount = cardCount / 3; // общее количество слайдов (групп карточек)
   // Функция для обновления позиции карусели
   function updateCarouselPosition() {
     const currentSlide = Math.ceil(
       (Math.abs(offset) + carouselWidth) / (carouselWidth * slideCount)
     ); // текущий слайд
-    carouselPosition.textContent = `${currentSlide * 3} / ${slideCount * 3}`; // обновление текста элемента
+    carouselPosition.textContent = `${currentSlide * 3}`; // обновление текста элемента
   }
 
   /* Для незацикленной карусели. Функция для обновления состояния кнопок. Проверяем, находится ли карусель в начальной позиции. Если да, то отключаем кнопку "влево"; иначе включаем кнопку "влево". Потом проверяем, находится ли карусель в конечной позиции. Если да, то отключаем кнопку "вправо"; иначе включаем кнопку "вправо". 
