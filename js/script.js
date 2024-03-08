@@ -1,3 +1,4 @@
+// **КНОПКИ В HERO SECTION**
 document
   .getElementById('left-hero-button')
   .addEventListener('click', function () {
@@ -11,7 +12,6 @@ document
       behavior: 'smooth',
     });
   });
-
 document
   .getElementById('right-hero-button')
   .addEventListener('click', function () {
@@ -25,10 +25,6 @@ document
       behavior: 'smooth',
     });
   });
-
-// **БЕГУЩАЯ СТРОКА**
-const ticker = document.querySelector('.ticker');
-const list = document.querySelector('.ticker__list');
 
 // **МОБИЛЬНАЯ КАРУСЕЛЬ**
 function initMobileCarousel() {
