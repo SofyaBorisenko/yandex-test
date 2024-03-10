@@ -59,6 +59,13 @@
       btn_R.addEventListener('mousedown', function () {
         self._slideRight();
       });
+
+      var dots = this.obj.querySelectorAll('.carousel-dot');
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].addEventListener('mousedown', function () {
+          self._slideJump(this.getAttribute('data-slide-index'));
+        });
+      }
     },
 
     _updateCurrentSlideDot: function () {

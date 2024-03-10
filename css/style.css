@@ -296,7 +296,6 @@ footer p {
 /* Styles for screens under 768px (Base) */
 @media only screen and (max-width: 768px) {
   body {
-    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -802,8 +801,8 @@ footer p {
   }
 }
 
-/* Styles for screens 768-1280px */
-@media screen and (min-width: 769px) and (max-width: 1280px) {
+/* Styles for screens 768-1365px */
+@media screen and (min-width: 768px) and (max-width: 1365px) {
   body {
     display: flex;
     flex-direction: column;
@@ -1194,8 +1193,8 @@ footer p {
   }
 }
 
-/* Styles for screens 1280px+ */
-@media screen and (min-width: 1281px) {
+/* Styles for screens 1366px+ */
+@media screen and (min-width: 1365px) {
   .header-hero-bg {
     min-width: 1366px;
     background-image: url('../images/background.webp');

@@ -192,7 +192,7 @@ function initDesktopCarousel() {
 }
 
 // Запуск нужной карусели в зависимости от ширины экрана
-if (window.innerWidth <= 992) {
+if (window.innerWidth <= 1366) {
   initMobileCarousel();
 } else {
   initDesktopCarousel();
