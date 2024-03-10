@@ -87,7 +87,7 @@ h3 {
 
 /* TICKER */
 .ticker {
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
   display: flex;
 }
@@ -294,7 +294,7 @@ footer p {
 }
 
 /* Styles for screens under 768px (Base) */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
   body {
     display: flex;
     flex-direction: column;
@@ -801,8 +801,8 @@ footer p {
   }
 }
 
-/* Styles for screens 768-1024px */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+/* Styles for screens 768-1365px */
+@media screen and (min-width: 768px) and (max-width: 1365px) {
   body {
     display: flex;
     flex-direction: column;
@@ -1193,10 +1193,10 @@ footer p {
   }
 }
 
-/* Styles for screens 1024px+ */
-@media screen and (min-width: 1024px) {
+/* Styles for screens 1366px+ */
+@media screen and (min-width: 1365px) {
   .header-hero-bg {
-    min-width: 1366px;
+    width: 100vw;
     background-image: url('../images/background.webp');
     background-size: cover;
     background-position: center;
